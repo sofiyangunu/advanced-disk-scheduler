@@ -1,7 +1,3 @@
-/* Simulation Engine implementing multiple disk scheduling algorithms.
-   Each simulateX returns an array of steps: { from, to, distance, servedIndex }.
-*/
-
 export function simulateFCFS(requests, headStart){
   const trace = []
   let cur = headStart
