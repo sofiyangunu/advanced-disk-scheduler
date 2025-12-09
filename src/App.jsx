@@ -115,7 +115,7 @@ export default function App() {
     return () => cancelAnimationFrame(rafId)
   }, [status.isRunning, config.speed, trace, ping])
 
-  const metrics = useMemo(() => metricsFromTrace(trace), [trace]) //
+  const metrics = useMemo(() => metricsFromTrace(trace), [trace])
 
   // --- 4. Logic: Event Log (Educational Feature) ---
   const getStepExplanation = (stepIdx) => {
@@ -341,10 +341,7 @@ export default function App() {
                     </button>
                 </div>
             </div>
-            
-            {/* Visualizer now receives 'requests' to draw pending dots 
-                and 'trace' to draw the path 
-            */}
+
             <TrackView 
                 diskMax={config.diskMax} 
                 headStart={config.headStart} 
