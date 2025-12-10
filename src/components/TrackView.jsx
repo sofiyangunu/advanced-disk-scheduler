@@ -349,4 +349,6 @@ export default function TrackView({ diskMax, headStart, trace, currentStepIndex,
       )}
     </div>
   )
+
+  
 }
