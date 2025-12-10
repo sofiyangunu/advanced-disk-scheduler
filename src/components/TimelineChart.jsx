@@ -14,18 +14,12 @@ export default function TimelineChart({ trace, currentStepIndex }) {
     gradient.addColorStop(0, 'rgba(59, 130, 246, 0.2)') // Blue
     gradient.addColorStop(1, 'rgba(59, 130, 246, 0.0)') // Transparent
 
-    // Data Preparation
-    // X-Axis: Step Index (Time)
-    // Y-Axis: Track Number (Position)
+
     const dataPoints = trace.map((t, i) => ({ x: i + 1, y: t.to }))
-    
-    // Prepend the start position (from the first step's 'from')
     if (trace.length > 0) {
       dataPoints.unshift({ x: 0, y: trace[0].from })
     }
 
-    // Highlight current progress
-    // We create two datasets: one for the full path (dimmed) and one for traveled path (bright)
     const traveledPoints = dataPoints.slice(0, currentStepIndex + 2) // +2 because of 0-index and start point
 
     if (chartRef.current) chartRef.current.destroy()

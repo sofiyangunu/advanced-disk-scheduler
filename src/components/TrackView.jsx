@@ -175,12 +175,10 @@ import React from 'react'
 
 export default function TrackView({ diskMax, headStart, trace, currentStepIndex, mode = 'rotating', requests = [] }) {
   
-  // 1. Current Head Position
   const currentPos = (currentStepIndex >= 0 && trace[currentStepIndex]) 
     ? trace[currentStepIndex].to 
     : headStart
 
-  // 2. Identify Served Requests
   const servedIndices = new Set()
   if (trace && trace.length > 0) {
     for (let i = 0; i <= currentStepIndex; i++) {
@@ -190,14 +188,10 @@ export default function TrackView({ diskMax, headStart, trace, currentStepIndex,
     }
   }
 
-  // --- STARVATION LOGIC ---
   const getRequestColor = (index, isServed) => {
     if (isServed) return '#34d399' // Green (Done)
     if (currentStepIndex === -1) return '#38bdf8' // Neon Blue (Fresh)
     
-    // Simple "Age" calculation: How many steps since start?
-    // In a real OS, this would be based on arrival timestamp.
-    // Here, unserved requests "age" as the step index increases.
     const waitTime = currentStepIndex 
     
     if (waitTime > 12) return '#f87171' // Red (Starving)
