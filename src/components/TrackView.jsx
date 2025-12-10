@@ -278,7 +278,6 @@ export default function TrackView({ diskMax, headStart, trace, currentStepIndex,
               borderRadius: '4px',
               boxShadow: '0 2px 4px rgba(0,0,0,0.5)'
             }} />
-            {/* The Head itself */}
             <div style={{
               position: 'absolute', right: '12px', top: '-6px', width: '16px', height: '20px',
               background: '#38bdf8', borderRadius: '4px',
@@ -292,17 +291,16 @@ export default function TrackView({ diskMax, headStart, trace, currentStepIndex,
             <span style={{color:'#34d399'}}>●</span> Done
           </div>
         </div>
+        
       )}
-
-      {/* --- MODE 2: LINEAR RULER --- */}
       {mode === 'linear' && (
+
         <div style={{ width: '90%', height: '100px', position: 'relative', marginTop: '20px' }}>
           <div style={{ 
             width: '100%', height: '50px', background: 'rgba(15, 23, 42, 0.6)', 
             border: '1px solid #334155', borderRadius: '8px', position: 'relative',
             boxShadow: 'inset 0 2px 10px rgba(0,0,0,0.5)'
           }}>
-            {/* Grid */}
             {Array.from({length: 11}).map((_, i) => (
               <div key={i} style={{ 
                 position: 'absolute', left: `${i*10}%`, bottom: 0, height: '15px', width: '1px', background: '#475569' 
@@ -347,6 +345,7 @@ export default function TrackView({ diskMax, headStart, trace, currentStepIndex,
           </div>
         </div>
       )}
+
     </div>
   )
 }
