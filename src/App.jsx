@@ -5,7 +5,8 @@ import ComparisonModal from './components/ComparisonModal' // The Dynamic Race M
 import { parseRequests, parseCSVFile, formatTraceToCSV, downloadCSV, exportPNG } from './utils' //
 import {
   simulateFCFS, simulateSSTF, simulateSCAN, simulateCSCAN, simulateLOOK, simulateCLOOK, metricsFromTrace
-} from './simEngine' //
+} from './simEngine' 
+
 import { Howl } from 'howler'
 
 const StatCard = ({ label, value, sub, highlight = false }) => (
@@ -17,7 +18,6 @@ const StatCard = ({ label, value, sub, highlight = false }) => (
 )
 
 export default function App() {
-  // --- Global State ---
   const [config, setConfig] = useState({
     diskMax: 199,
     headStart: 50,
@@ -28,20 +28,17 @@ export default function App() {
     speed: 1
   })
 
-  // Inputs & Validation
   const [inputStr, setInputStr] = useState('95,180,34,119,11,123,62,64')
   const [error, setError] = useState(null)
   
-  // Simulation State
   const [trace, setTrace] = useState([])
-  const [viewMode, setViewMode] = useState('rotating') // 'linear' | 'rotating'
+  const [viewMode, setViewMode] = useState('rotating') 
   const [status, setStatus] = useState({ isRunning: false, step: -1 })
   const [showCompare, setShowCompare] = useState(false)
   
   // Refs
   const appRef = useRef(null)
   
-  // Sound Engine (Low volume beep)
   const ping = useMemo(() => new Howl({ 
     src: ['https://actions.google.com/sounds/v1/alarms/beep_short.ogg'], 
     volume: 0.15,
