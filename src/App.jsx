@@ -8,7 +8,6 @@ import {
 } from './simEngine' //
 import { Howl } from 'howler'
 
-// --- Reusable Stat Component ---
 const StatCard = ({ label, value, sub, highlight = false }) => (
   <div className="stat-item" style={{ color: highlight ? '#34d399' : 'inherit' }}>
     <div className="stat-val">{value}</div>

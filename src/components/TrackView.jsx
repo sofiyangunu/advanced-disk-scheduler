@@ -272,6 +272,8 @@ export default function TrackView({ diskMax, headStart, trace, currentStepIndex,
             transition: 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)',
             zIndex: 20
           }}>
+
+            
             <div style={{
               position: 'absolute', right: '50%', width: '140px', height: '8px',
               background: 'linear-gradient(90deg, #334155, #64748b)', 
@@ -294,6 +296,8 @@ export default function TrackView({ diskMax, headStart, trace, currentStepIndex,
         
       )}
       {mode === 'linear' && (
+
+
 
         <div style={{ width: '90%', height: '100px', position: 'relative', marginTop: '20px' }}>
           <div style={{ 
