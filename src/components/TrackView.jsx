@@ -264,7 +264,7 @@ export default function TrackView({ diskMax, headStart, trace, currentStepIndex,
             zIndex: 10
           }} />
 
-          {/* Actuator Arm */}
+
           <div style={{
             position: 'absolute', top: '50%', left: '50%', width: '100%', height: '4px',
             transformOrigin: 'center',
@@ -273,7 +273,7 @@ export default function TrackView({ diskMax, headStart, trace, currentStepIndex,
             zIndex: 20
           }}>
 
-            
+
             <div style={{
               position: 'absolute', right: '50%', width: '140px', height: '8px',
               background: 'linear-gradient(90deg, #334155, #64748b)', 

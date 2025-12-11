@@ -6,6 +6,8 @@ export default function TimelineChart({ trace, currentStepIndex }) {
   const canvasRef = useRef(null)
   const chartRef = useRef(null)
 
+
+  
   useEffect(() => {
     const ctx = canvasRef.current.getContext('2d')
     

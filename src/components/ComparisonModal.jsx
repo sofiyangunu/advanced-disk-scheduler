@@ -37,6 +37,7 @@ export default function ComparisonModal({ requests, config, onClose }) {
     chartRef.current = new Chart(ctx, {
       type: 'bar',
       data: {
+        
         labels: raceData.map(r => r.name),
         datasets: [{
           label: 'Total Seek Distance',

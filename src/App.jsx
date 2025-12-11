@@ -36,22 +36,19 @@ export default function App() {
   const [status, setStatus] = useState({ isRunning: false, step: -1 })
   const [showCompare, setShowCompare] = useState(false)
   
-  // Refs
   const appRef = useRef(null)
   
   const ping = useMemo(() => new Howl({ 
     src: ['https://actions.google.com/sounds/v1/alarms/beep_short.ogg'], 
     volume: 0.15,
-    rate: 2.0 // Higher pitch for "mechanical" feel
+    rate: 2.0 
   }), [])
 
-  // --- 1. Logic: Parse & Validate Inputs ---
   const requests = useMemo(() => {
     if (!inputStr.trim()) {
       setError('Queue cannot be empty')
       return []
     }
-    // Allow numbers, commas, and spaces
     if (/[^0-9,\s]/.test(inputStr)) {
       setError('Only numbers and commas allowed')
       return []
@@ -60,12 +57,10 @@ export default function App() {
     return parseRequests(inputStr, config.diskMax)
   }, [inputStr, config.diskMax])
 
-  // --- 2. Logic: Compute Trace ---
   useEffect(() => {
     let t = []
     const { diskMax, headStart, direction, useEdge, countJump } = config
     
-    // Select Algorithm dynamically
     switch (config.algorithm) {
       case 'FCFS': t = simulateFCFS(requests, headStart); break;
       case 'SSTF': t = simulateSSTF(requests, headStart); break;
@@ -76,11 +71,9 @@ export default function App() {
       default: t = [];
     }
     setTrace(t)
-    // Reset simulation when algorithm or data changes
     setStatus({ isRunning: false, step: -1 })
   }, [requests, config.headStart, config.algorithm, config.diskMax, config.direction, config.useEdge, config.countJump])
 
-  // --- 3. Logic: Animation Loop ---
   useEffect(() => {
     if (!status.isRunning) return
 
